@@ -1,0 +1,7 @@
+datasette>=0.54
+sqlite-utils
+datasette-vega
+datasette-graphql
+datasette-atom
+datasette-yaml
+datasette-export-notebook
