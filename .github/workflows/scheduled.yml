@@ -5,8 +5,13 @@ on:
     branches:
       - main
   workflow_dispatch:
-  schedule:
-    - cron: '5 * * * *'
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test run'
 
 jobs:
   scheduled:
