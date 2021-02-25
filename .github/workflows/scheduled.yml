@@ -11,7 +11,7 @@ on:
         required: true
         default: 'warning'
       tags:
-        description: 'Test run'
+        description: 'Deployment run'
 
 jobs:
   scheduled:
@@ -58,7 +58,7 @@ jobs:
       if: github.event_name == 'workflow_dispatch' || steps.decide_variables.outputs.latest != steps.decide_variables.outputs.deployed
       run: |-
         datasette publish vercel cividi.db \
-          --service cividi-datasette \
+          --project ${{ secrets.VERCEL_PROJECT_ID }} \
           -m metadata.json \
           --branch main \
           --install
