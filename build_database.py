@@ -10,6 +10,7 @@ EXTRA_CSVS = [
     # file_path, table_name
 ]
 
+# TODO: load from Data Package
 
 def load_municipalities():
     daily_reports = list(

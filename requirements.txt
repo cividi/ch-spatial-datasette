@@ -5,3 +5,5 @@ datasette-graphql
 datasette-atom
 datasette-yaml
 datasette-export-notebook
+datasette-publish-vercel
+datapackage-to-datasette

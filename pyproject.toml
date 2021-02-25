@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ch-spatial-datasette"
+version = "0.0.1"
+description = "A tool for exploring and publishing spatial data"
+authors = ["Oleg Lavrovsky <oleg@cividi.ch>", "Simon Willison <swillison@gmail.com>"]
+
+[tool.poetry.dependencies]
+Python=">=3.6,<4.0"
+datasette=">=0.54"
+sqlite-utils="*"
+datasette-vega="*"
+datasette-graphql="*"
+datasette-atom="*"
+datasette-yaml="*"
+datasette-export-notebook="*"
+datapackage-to-datasette = "^0.1.0"
+datasette-publish-vercel = "^0.9.1"
+
+[tool.poetry.dev-dependencies]
