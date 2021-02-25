@@ -19,11 +19,8 @@ jobs:
     steps:
     - name: Check out the datasette
       uses: actions/checkout@v2
-    - name: Check out ch-municipalities
-      uses: actions/checkout@v2
       with:
-        repository: cividi/ch-municipalities
-        path: ch-municipalities
+        submodules: recursive
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
@@ -56,7 +53,7 @@ jobs:
       if: github.event_name == 'workflow_dispatch' || steps.decide_variables.outputs.latest != steps.decide_variables.outputs.deployed
       run: |-
         datasette publish vercel cividi.db \
-          --project ${{ secrets.VERCEL_PROJECT_ID }} \
+          --project ${{ secrets.VERCEL_PROJECT_NAME }} \
           -m metadata.json \
           --branch main \
           --install=datasette-vega \
