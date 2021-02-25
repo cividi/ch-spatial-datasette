@@ -59,13 +59,12 @@ jobs:
           --project ${{ secrets.VERCEL_PROJECT_ID }} \
           -m metadata.json \
           --branch main \
-          --install
-            datasette-vega \
-            datasette-copyable \
-            datasette-graphql \
-            datasette-yaml \
-            datasette-atom \
-            datasette-export-notebook \
-            datasette-publish-vercel \
-            datapackage-to-datasette \
+          --install=datasette-vega \
+          --install=datasette-copyable \
+          --install=datasette-graphql \
+          --install=datasette-yaml \
+          --install=datasette-atom \
+          --install=datasette-export-notebook \
+          --install=datasette-publish-vercel \
+          --install=datapackage-to-datasette \
           --extra-options="--config facet_time_limit_ms:3000 --config sql_time_limit_ms:3000"
