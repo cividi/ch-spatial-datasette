@@ -4,7 +4,7 @@ import sqlite_utils
 import csv
 
 base_path = (Path(__file__) / "..").resolve()
-chmunicipalities_base = base_path / "ch-municipalities"
+ch_data_base = base_path / "ch-data"
 
 EXTRA_CSVS = [
     # file_path, table_name
@@ -14,7 +14,7 @@ EXTRA_CSVS = [
 
 def load_municipalities():
     daily_reports = list(
-        (chmunicipalities_base).glob(
+        (ch_data_base).glob(
             "*.csv"
         )
     )
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     table = db["ch_municipalities"]
     if table.exists():
         table.drop()
-    table.insert_all(load_municipalities())
+    table.insert_all(load_municipalities(), alter=True)
     table.create_index(["number"], if_not_exists=True)
     table.create_index(["canton"], if_not_exists=True)
     table.create_index(["town"], if_not_exists=True)
